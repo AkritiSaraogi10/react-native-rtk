@@ -1,12 +1,14 @@
-import axios from 'axios'
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
+import axios from 'axios';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 const initialState = {
   loading: false,
   users: [],
   error: ''
 }
-
+//createAsyncThunk --->  make it easier to work with asynchronous actions in Redux, and it enables you 
+// to write action creators that 
+// return a function instead of an action object
 // Generates pending, fulfilled and rejected action types
 export const fetchUsers = createAsyncThunk('user/fetchUsers', () => {
   return axios

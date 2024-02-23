@@ -1,12 +1,22 @@
-import { StatusBar } from 'expo-status-bar';
+
 import { StyleSheet, Text, View } from 'react-native';
+import { CakeView } from './features/cake/cakeView';
+import { IcecreamView } from './features/icecream/iceCreamView';
+import { UserView } from './features/user/userView';
+import { Provider } from 'react-redux'
+import store from './app/store'
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    // provider --> makes the Redux store available to any nested components
+    //  that need to access the Redux store
+    <Provider store={store}>
+      <View style={styles.container}>
+        <CakeView />
+        <IcecreamView />
+        <UserView />
+      </View>
+    </Provider>
   );
 }
 
